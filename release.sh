@@ -2,6 +2,7 @@
 # Bash version should >= 4 to be able to run this script.
 
 IMAGE="${DOCKER_ORG:-budtmo}/docker-android"
+echo "{DOCKER_ORG:-budtmo}: ${DOCKER_ORG:-budtmo}"
 
 if [ -z "$1" ]; then
     read -p "Task (test|build|push|all) : " TASK
@@ -18,6 +19,7 @@ fi
 if [ -z "$3" ]; then
     read -p "Release version: " RELEASE
 else
+    echo "Release version ${$3}"
     RELEASE=$3
 fi
 
@@ -76,8 +78,8 @@ processor=x86
 
 function test() {
     # Prepare needed parameter to run tests
-    test_android_version=7.1.1
-    test_api_level=25
+    test_android_version=8.1
+    test_api_level=27
     test_processor=x86
     test_sys_img=$test_processor
     test_img_type=google_apis
@@ -159,6 +161,8 @@ function build() {
         echo "[BUILD] System Image: $sys_img"
         chrome_driver="${chromedriver_versions[$v]}"
         echo "[BUILD] chromedriver version: $chrome_driver"
+        echo "image_version: $IMAGE-$processor-$v:$RELEASE"
+        echo "image_latest: $IMAGE-$processor-$v:latest"
         image_version="$IMAGE-$processor-$v:$RELEASE"
         image_latest="$IMAGE-$processor-$v:latest"
         echo "[BUILD] Image name: $image_version and $image_latest"
