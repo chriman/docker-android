@@ -1,7 +1,8 @@
 #!/bin/bash
 # Bash version should >= 4 to be able to run this script.
 
-IMAGE="${DOCKER_ORG:-budtmo}/docker-android"
+IMAGE="${DOCKER_ORG:-dongbibi}/docker-android"
+echo "{DOCKER_ORG:}: ${DOCKER_ORG}"
 echo "{DOCKER_ORG:-budtmo}: ${DOCKER_ORG:-budtmo}"
 
 if [ -z "$1" ]; then
