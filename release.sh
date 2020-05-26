@@ -19,8 +19,8 @@ fi
 if [ -z "$3" ]; then
     read -p "Release version: " RELEASE
 else
-    echo "Release version ${$3}"
     RELEASE=$3
+    echo "Release version ${RELEASE}"
 fi
 
 declare -A list_of_levels=(
