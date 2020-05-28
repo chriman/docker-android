@@ -3,7 +3,7 @@
 
 IMAGE="${DOCKER_ORG:-dongbibi}/docker-android"
 echo "{DOCKER_ORG:}: ${DOCKER_ORG}"
-echo "{DOCKER_ORG:-budtmo}: ${DOCKER_ORG:-budtmo}"
+echo "{DOCKER_ORG:-budtmo}: ${DOCKER_ORG:-dongbibi}"
 
 if [ -z "$1" ]; then
     read -p "Task (test|build|push|all) : " TASK
